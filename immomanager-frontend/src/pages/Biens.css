@@ -1,0 +1,92 @@
+/* ===== Container principal ===== */
+.biens-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 25px 20px;
+  background: #f9fafc;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== Titre ===== */
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* ===== Liste des biens ===== */
+.biens-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== Carte ===== */
+.bien-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  padding: 14px;
+  transition: all 0.25s ease;
+}
+
+.bien-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Image ===== */
+.bien-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 14px;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin-right: 18px;
+}
+
+/* ===== Infos ===== */
+.bien-info h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #222;
+  font-weight: 600;
+}
+
+.ville {
+  margin: 4px 0;
+  color: #888;
+  font-size: 13px;
+}
+
+.prix {
+  color: #007bff;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.prix span {
+  font-size: 12px;
+  color: #999;
+  margin-left: 4px;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 480px) {
+  .bien-image {
+    width: 75px;
+    height: 75px;
+  }
+
+  .bien-info h3 {
+    font-size: 15px;
+  }
+
+  .prix {
+    font-size: 14px;
+  }
+}

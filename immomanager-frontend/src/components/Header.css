@@ -1,0 +1,97 @@
+.app-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 10000;
+}
+
+.app-bar__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  color: #007bff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.logo-img {
+  height: 44px;
+  width: auto;
+}
+
+.app-bar__center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 6px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background: rgba(0,123,255,0.06);
+  color: #0056b3;
+}
+
+.nav-links a.active {
+  background: rgba(0,123,255,0.12);
+  color: #0056b3;
+}
+
+.app-bar__right {
+  display: flex;
+  align-items: center;
+}
+
+.btn-connect {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btn-connect:hover {
+  background: #0056b3;
+}
+
+/* Espace sous la barre */
+body, .home-container {
+  padding-top: 72px;
+}
+
+/* Responsive */
+@media (max-width: 880px) {
+  .nav-links { gap: 14px; font-size: 14px; }
+  .logo-img { height: 36px; }
+  .app-bar { padding: 0 14px; height: 64px; }
+  body, .home-container { padding-top: 64px; }
+}
