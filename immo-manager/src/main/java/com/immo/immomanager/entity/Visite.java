@@ -1,12 +1,15 @@
 package com.immo.immomanager.entity;
+
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.time.LocalDateTime;
 
 @Data
 @Entity
 @Table(name = "visites")
 public class Visite {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +25,10 @@ public class Visite {
     private String notes;
 
     private LocalDateTime dateCreation = LocalDateTime.now();
+
+    // AJOUT pour les rappels calendriers
+    private LocalDateTime dateRappel;
+
     @ManyToOne
     @JoinColumn(name = "demande_id", nullable = false)
     private Demande demande;

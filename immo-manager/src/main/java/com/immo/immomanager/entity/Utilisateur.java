@@ -2,6 +2,7 @@ package com.immo.immomanager.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.time.LocalDateTime;
 
 @Data
@@ -35,6 +36,9 @@ public class Utilisateur {
     private Boolean actif = true;
 
     private LocalDateTime dateCreation = LocalDateTime.now();
+
+    // AJOUT pour les alertes personnalisées
+    private Boolean notificationsActivees = true;
 
     @ManyToOne
     @JoinColumn(name = "agence_id", nullable = true)

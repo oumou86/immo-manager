@@ -2,6 +2,7 @@ package com.immo.immomanager.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.time.LocalDateTime;
 
 @Data
@@ -27,6 +28,9 @@ public class Demande {
     private LocalDateTime dateCreation = LocalDateTime.now();
 
     private LocalDateTime dateMaj;
+
+    // AJOUT pour les alertes de suivi
+    private LocalDateTime dateRelance;
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)

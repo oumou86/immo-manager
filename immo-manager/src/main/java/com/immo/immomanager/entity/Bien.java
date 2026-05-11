@@ -1,6 +1,8 @@
 package com.immo.immomanager.entity;
+
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "biens")
 public class Bien {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,7 +26,6 @@ public class Bien {
 
     private Double surface;
     private Integer nbPieces;
-
     private Integer nbChambres;
 
     @Column(nullable = false, length = 100)
@@ -31,6 +33,12 @@ public class Bien {
 
     @Column(length = 255)
     private String adresse;
+
+    private Double latitude;
+    private Double longitude;
+    private Boolean estLoue = false;
+    private LocalDateTime dateDisponibilite;
+    private Double loyerEstime;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -51,6 +59,7 @@ public class Bien {
 
     @OneToMany(mappedBy = "bien")
     private List<Demande> demandes;
+
     public enum TypeBien {
         APPARTEMENT, MAISON, TERRAIN, VILLA
     }
