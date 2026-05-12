@@ -3,11 +3,23 @@ package com.immo.immomanager.repository;
 import com.immo.immomanager.entity.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
-    
+
     Optional<Utilisateur> findByEmail(String email);
+
     boolean existsByEmail(String email);
+
+    // Recherche par rôle (SUPER_ADMIN, ADMIN, CLIENT)
+    List<Utilisateur> findByRole(Utilisateur.Role role);
+
+    // Recherche par agence
+    List<Utilisateur> findByAgenceId(Long agenceId);
+
+    // Recherche par statut actif
+    List<Utilisateur> findByActif(Boolean actif);
 }

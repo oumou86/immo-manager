@@ -7,8 +7,13 @@ import java.util.List;
 
 @Repository
 public interface DemandeRepository extends JpaRepository<Demande, Long> {
-    
+
     List<Demande> findByClientId(Long clientId);
+
     List<Demande> findByBienId(Long bienId);
+
     List<Demande> findByStatut(Demande.StatutDemande statut);
+
+    // Manquait dans votre repository
+    List<Demande> findByType(Demande.TypeDemande type);
 }
