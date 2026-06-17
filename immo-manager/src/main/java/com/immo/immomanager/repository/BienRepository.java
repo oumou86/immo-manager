@@ -2,10 +2,9 @@ package com.immo.immomanager.repository;
 
 import com.immo.immomanager.entity.Bien;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import java.util.List;
 
-@Repository
+
 public interface BienRepository extends JpaRepository<Bien, Long> {
     
     List<Bien> findByVille(String ville);
