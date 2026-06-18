@@ -83,8 +83,8 @@
   background: #0056b3;
 }
 
-/* Espace sous la barre */
-body, .home-container {
+/* Espace sous la barre, appliqué à TOUTES les pages */
+body {
   padding-top: 72px;
 }
 
@@ -93,5 +93,7 @@ body, .home-container {
   .nav-links { gap: 14px; font-size: 14px; }
   .logo-img { height: 36px; }
   .app-bar { padding: 0 14px; height: 64px; }
-  body, .home-container { padding-top: 64px; }
+  body { padding-top: 64px; }
 }
+
+
