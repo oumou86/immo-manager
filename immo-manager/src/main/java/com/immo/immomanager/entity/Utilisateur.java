@@ -1,5 +1,7 @@
 package com.immo.immomanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,6 +26,7 @@ public class Utilisateur {
     private String email;
 
     @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String motDePasse;
 
     @Column(length = 20)
@@ -37,11 +40,11 @@ public class Utilisateur {
 
     private LocalDateTime dateCreation = LocalDateTime.now();
 
-    // AJOUT pour les alertes personnalisées
     private Boolean notificationsActivees = true;
 
     @ManyToOne
     @JoinColumn(name = "agence_id", nullable = true)
+    @JsonIgnoreProperties({"utilisateurs", "biens"})
     private Agence agence;
 
     public enum Role {

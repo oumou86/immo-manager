@@ -1,6 +1,9 @@
 package com.immo.immomanager.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -8,7 +11,8 @@ import java.util.List;
 @Entity
 @Table(name = "agences")
 public class Agence {
-   @Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -23,6 +27,7 @@ public class Agence {
 
     @Column(unique = true, length = 150)
     private String email;
+
     @Column(columnDefinition = "TEXT")
     private String description;
 
@@ -33,9 +38,10 @@ public class Agence {
     private LocalDateTime dateCreation = LocalDateTime.now();
 
     @OneToMany(mappedBy = "agence")
+    @JsonIgnoreProperties({"agence"})
     private List<Utilisateur> utilisateurs;
 
     @OneToMany(mappedBy = "agence")
+    @JsonIgnoreProperties({"agence"})
     private List<Bien> biens;
-     
 }

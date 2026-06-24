@@ -34,6 +34,11 @@ public class UtilisateurService {
         return utilisateurRepository.findByAgenceId(agenceId);
     }
 
+    // ← AJOUT : vérifier si un email existe déjà
+    public boolean existsByEmail(String email) {
+        return utilisateurRepository.existsByEmail(email);
+    }
+
     public Utilisateur createUtilisateur(Utilisateur utilisateur) {
         if (utilisateurRepository.findByEmail(utilisateur.getEmail()).isPresent()) {
             throw new RuntimeException("Email déjà utilisé : " + utilisateur.getEmail());
@@ -50,7 +55,6 @@ public class UtilisateurService {
         utilisateurRepository.deleteById(id);
     }
 
-    // Activer / désactiver un compte
     public Utilisateur toggleActif(Long id) {
         Utilisateur utilisateur = utilisateurRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Utilisateur introuvable : " + id));
@@ -58,7 +62,6 @@ public class UtilisateurService {
         return utilisateurRepository.save(utilisateur);
     }
 
-    // Activer / désactiver les notifications
     public Utilisateur toggleNotifications(Long id) {
         Utilisateur utilisateur = utilisateurRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Utilisateur introuvable : " + id));
@@ -66,7 +69,6 @@ public class UtilisateurService {
         return utilisateurRepository.save(utilisateur);
     }
 
-    // Vérifier si un utilisateur est actif
     public boolean estActif(Long id) {
         return utilisateurRepository.findById(id)
                 .map(u -> Boolean.TRUE.equals(u.getActif()))

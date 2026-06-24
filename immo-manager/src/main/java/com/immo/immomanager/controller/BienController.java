@@ -55,6 +55,14 @@ public class BienController {
         return bienService.getBiensByPrix(min, max);
     }
 
+
+    // GET biens par agence (pour le dashboard Admin)
+     @GetMapping("/agence/{agenceId}")
+     public List<Bien> getBiensByAgence(@PathVariable Long agenceId) {
+     return bienService.getAllBiens().stream()
+            .filter(b -> b.getAgence() != null && b.getAgence().getId().equals(agenceId))
+            .toList();
+    }
     // POST créer un bien
     @PostMapping
     public Bien createBien(@RequestBody Bien bien) {

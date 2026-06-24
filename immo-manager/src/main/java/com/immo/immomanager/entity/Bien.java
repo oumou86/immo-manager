@@ -1,5 +1,6 @@
 package com.immo.immomanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -52,12 +53,15 @@ public class Bien {
 
     @ManyToOne
     @JoinColumn(name = "agence_id", nullable = false)
+    @JsonIgnoreProperties({"biens", "utilisateurs"})
     private Agence agence;
 
     @OneToMany(mappedBy = "bien")
+    @JsonIgnoreProperties({"bien"})
     private List<Image> images;
 
     @OneToMany(mappedBy = "bien")
+    @JsonIgnoreProperties({"bien"})
     private List<Demande> demandes;
 
     public enum TypeBien {
