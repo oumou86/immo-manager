@@ -82,18 +82,3 @@
 .btn-connect:hover {
   background: #0056b3;
 }
-
-/* Espace sous la barre, appliqué à TOUTES les pages */
-body {
-  padding-top: 72px;
-}
-
-/* Responsive */
-@media (max-width: 880px) {
-  .nav-links { gap: 14px; font-size: 14px; }
-  .logo-img { height: 36px; }
-  .app-bar { padding: 0 14px; height: 64px; }
-  body { padding-top: 64px; }
-}
-
-

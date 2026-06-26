@@ -22,7 +22,7 @@ export default function Header() {
       </nav>
 
       <div className="app-bar__right">
-        <NavLink to="/login" className="btn-connect">Se connecter</NavLink>
+        <NavLink to="/connexion" className="btn-connect">Se connecter</NavLink>
       </div>
     </header>
   );
